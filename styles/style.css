@@ -89,31 +89,32 @@
 
 .overlay {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cover__title,
+.cover__description,
+.card__title,
+.card__text {
+  position: relative;
+  z-index: 1;
 }
 
 .cover__title {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  display: grid;
+  row-gap: 20px;
   color: #fff;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
   font-size: 100px;
   line-height: 115%;
   letter-spacing: 0.3em;
-  text-align: center;
   text-transform: uppercase;
 }
+
 
 .no-letter-spacing {
   letter-spacing: 0;
@@ -133,9 +134,9 @@
 
 .cover__description {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding-top: 106px;
+  align-items: center;
+  margin-top: 106px;
 }
 
 .cover__description-text {
@@ -151,8 +152,10 @@
 }
 
 .bet-button {
+  min-width: 256px;
+  min-height: 51px;
   border: 1px solid #fff;
-  padding: 12px 32px;
+  padding: 12px 32px 11px;
   color: #fff;
   font-family: 'Raleway', sans-serif;
   font-weight: 500;
@@ -161,7 +164,6 @@
   text-transform: uppercase;
   background-color: transparent;
 }
-
 
 
 .lots {
@@ -256,17 +258,29 @@
 
 .about {
   display: grid;
-  grid-template-columns: 240px auto;
-  gap: 72px;
-  margin: 155px 24px 0 71px;
+  grid-template-columns: 334px 1fr;
+  width: 1052px;
+  min-height: 595px;
+  margin: 155px 24px 0;
+}
+
+.about__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__column:first-child {
+  align-items: center;
 }
 
 .about__logo {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 240px;
   height: 240px;
-  border-radius: 100%;
+  margin-top: 35px;
+  border-radius: 50%;
   background-color: #000;
 }
 
@@ -275,15 +289,8 @@
   height: 114px;
 }
 
-.about__column {
-  display: flex;
-  flex-direction: column;
-  align-items: self-start;
-  padding: 98px 0 0;
-}
-
 .about__title {
-  margin-bottom: 100px;
+  margin: 136px 0 100px;
   color: #000;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
@@ -292,11 +299,12 @@
 }
 
 .about__text {
+  max-width: 693px;
   color: #000;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  line-height: 120%;
+  line-height: 24px;
 }
 
 .about__text:first-of-type {
